@@ -6,6 +6,13 @@ import DealsOnBooking from "../DealsOnBooking/DealsOnBooking";
 import OurServices from "../OurServices/OurServices";
 import BookOurServices from "../BookOurServices/BookOurServices";
 export default function Hero ( ) {
+
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+
+
+  
     const services = [
         {
             img:'/dollar-sign.png',
