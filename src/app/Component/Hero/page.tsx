@@ -1,17 +1,21 @@
 'use client'
-import React from "react";
+import React,{useState} from "react";
 import Image from "next/image";
 import AboutCompany from "./AboutCompany";
 import DealsOnBooking from "../DealsOnBooking/DealsOnBooking";
 import OurServices from "../OurServices/OurServices";
 import BookOurServices from "../BookOurServices/BookOurServices";
+import {addTodo,removeTodo} from '../../redux/features/todo/todoslice'
+import useDispatch from '@reduxjs/toolkit'
 export default function Hero ( ) {
 
     fetch('https://jsonplaceholder.typicode.com/posts/1')
   .then((response) => response.json())
   .then((json) => console.log(json));
 
+const [input, setInput] = useState('');
 
+const dispatch = useDispatch();
   
     const services = [
         {
@@ -53,7 +57,7 @@ export default function Hero ( ) {
     <div className="flex flex-row items-center bg-white w-full py-[55px] px-[48px]">
       {
         services.map((element,idx)=> {
-                return <div className="flex flex-row items-center gap-[21px] text-black">
+                return <div key={idx} className="flex flex-row items-center gap-[21px] text-black">
                 <div>
                     <Image src={element.img} alt="" width = {64} height = {64}/>
                 </div>
@@ -65,6 +69,8 @@ export default function Hero ( ) {
         })
       }  
     </div>
+
+
      <AboutCompany/>
     <DealsOnBooking/>
     <OurServices/>
