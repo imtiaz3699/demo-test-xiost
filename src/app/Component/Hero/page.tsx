@@ -58,7 +58,7 @@ export default function Hero ( ) {
         })
       }  
     </div>
-    <AboutCompany/>
+     <AboutCompany/>
     <DealsOnBooking/>
     <OurServices/>
     <BookOurServices/>
